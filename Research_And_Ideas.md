@@ -6,4 +6,12 @@ https://cran.r-project.org/doc/manuals/R-exts.pdf
 
 http://dirk.eddelbuettel.com/code/rcpp/Rcpp-package.pdf
 
+Based on some of my research, it looks like Rcpp is a package designed to integrate C++ with R. Also, it has some very useful functions to create the basis for an R package using Rcpp. I think it would be a good stepping stone that would help reduce some of the initial chores to creating a package.
+
+http://gallery.rcpp.org/
+
+RccpExamples and its reference manual:
+https://cran.r-project.org/web/packages/RcppExamples/index.html
+https://cran.r-project.org/web/packages/RcppExamples/RcppExamples.pdf
+
 
