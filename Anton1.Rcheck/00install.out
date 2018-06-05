@@ -1,0 +1,16 @@
+* installing *source* package ‘Anton1’ ...
+** libs
+x86_64-apple-darwin13.4.0-clang++  -I/Users/Anton/anaconda3/lib/R/include -DNDEBUG  -I"/Users/Anton/anaconda3/lib/R/library/Rcpp/include" -D_FORTIFY_SOURCE=2 -mmacosx-version-min=10.9 -I/Users/Anton/anaconda3/include   -fPIC  -march=core2 -mtune=haswell -mssse3 -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden  -fmessage-length=0 -I/Users/Anton/anaconda3/include -fdebug-prefix-map==/usr/local/src/conda/- -fdebug-prefix-map==/usr/local/src/conda-prefix  -c RcppExports.cpp -o RcppExports.o
+x86_64-apple-darwin13.4.0-clang++  -I/Users/Anton/anaconda3/lib/R/include -DNDEBUG  -I"/Users/Anton/anaconda3/lib/R/library/Rcpp/include" -D_FORTIFY_SOURCE=2 -mmacosx-version-min=10.9 -I/Users/Anton/anaconda3/include   -fPIC  -march=core2 -mtune=haswell -mssse3 -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden  -fmessage-length=0 -I/Users/Anton/anaconda3/include -fdebug-prefix-map==/usr/local/src/conda/- -fdebug-prefix-map==/usr/local/src/conda-prefix  -c rcpp_hello_world.cpp -o rcpp_hello_world.o
+x86_64-apple-darwin13.4.0-clang++ -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/Users/Anton/anaconda3/lib/R/lib -Wl,-pie -Wl,-headerpad_max_install_names -Wl,-dead_strip_dylibs -Wl,-rpath,/Users/Anton/anaconda3/lib -L/Users/Anton/anaconda3/lib -o Anton1.so RcppExports.o rcpp_hello_world.o -L/Users/Anton/anaconda3/lib/R/lib -lR -Wl,-framework -Wl,CoreFoundation
+ld: warning: -pie being ignored. It is only used when linking a main executable
+ld: warning: ignoring file /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks//CoreFoundation.framework/CoreFoundation.tbd, file was built for unsupported file format ( 0x2D 0x2D 0x2D 0x20 0x21 0x74 0x61 0x70 0x69 0x2D 0x74 0x62 0x64 0x2D 0x76 0x33 ) which is not the architecture being linked (x86_64): /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks//CoreFoundation.framework/CoreFoundation.tbd
+ld: warning: ignoring file /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/lib/libSystem.tbd, file was built for unsupported file format ( 0x2D 0x2D 0x2D 0x20 0x21 0x74 0x61 0x70 0x69 0x2D 0x74 0x62 0x64 0x2D 0x76 0x33 ) which is not the architecture being linked (x86_64): /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/lib/libSystem.tbd
+installing to /Users/Anton/PIC-10C-Final-Project/Anton1.Rcheck/Anton1/libs
+** R
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded
+* DONE (Anton1)

@@ -10,7 +10,7 @@ Based on some of my research, it looks like Rcpp is a package designed to integr
 
 http://gallery.rcpp.org/
 
-RccpExamples and its reference manual:
+### RccpExamples and its reference manual:
 https://cran.r-project.org/web/packages/RcppExamples/index.html
 https://cran.r-project.org/web/packages/RcppExamples/RcppExamples.pdf
 
