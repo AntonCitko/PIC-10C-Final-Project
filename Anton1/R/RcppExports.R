@@ -5,3 +5,15 @@ rcpp_hello_world <- function() {
     .Call(`_Anton1_rcpp_hello_world`)
 }
 
+meanC <- function(x) {
+    .Call(`_Anton1_meanC`, x)
+}
+
+sumCpp <- function(x) {
+    .Call(`_Anton1_sumCpp`, x)
+}
+
+to_celsius <- function(x) {
+    .Call(`_Anton1_to_celsius`, x)
+}
+

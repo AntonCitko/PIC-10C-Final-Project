@@ -3,7 +3,7 @@ title: "PIC 10C Final Project Sandbox"
 output: html_notebook
 ---
 
-
+## Initial creation of package
 ```{r}
 library(Rcpp)
 
@@ -15,14 +15,31 @@ Rcpp.package.skeleton("Anton1")
 
 install.packages("~/PIC-10C-Final-Project/Anton1_1.0.tar.gz", repos = NULL, type = "source")
 
-library("Anton1")
+library(Anton1)
 
 rcpp_hello_world <- function() {.Call('_Anton1_rcpp_hello_world', PACKAGE = 'Anton1')}
 
 rcpp_hello_world()
 ```
 
+## Adding a function to convert a number to celsius, sum a vector, and find the mean of a vector
+```{r}
+compileAttributes("/Users/Anton/PIC-10C-Final-Project/Anton1/", verbose=TRUE)
 
+library(tools)
+package_native_routine_registration_skeleton("/Users/Anton/PIC-10C-Final-Project/Anton1/", character_only = FALSE)
+
+install.packages("~/PIC-10C-Final-Project/Anton1_1.0.tar.gz", repos = NULL, type = "source")
+library(Anton1)
+
+Anton1::to_celsius(100.0)
+
+sumCpp(thingy)
+
+meanC(thingy)
+
+to_celsius(10)
+```
 
 
 
