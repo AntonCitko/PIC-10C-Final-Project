@@ -61,13 +61,24 @@ BEGIN_RCPP
 END_RCPP
 }
 // removePunct
-CharacterVector removePunct(CharacterVector ori);
+CharacterVector removePunct(const CharacterVector& ori);
 RcppExport SEXP _Anton1_removePunct(SEXP oriSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< CharacterVector >::type ori(oriSEXP);
+    Rcpp::traits::input_parameter< const CharacterVector& >::type ori(oriSEXP);
     rcpp_result_gen = Rcpp::wrap(removePunct(ori));
+    return rcpp_result_gen;
+END_RCPP
+}
+// removePunct2
+CharacterVector removePunct2(CharacterVector ori);
+RcppExport SEXP _Anton1_removePunct2(SEXP oriSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< CharacterVector >::type ori(oriSEXP);
+    rcpp_result_gen = Rcpp::wrap(removePunct2(ori));
     return rcpp_result_gen;
 END_RCPP
 }

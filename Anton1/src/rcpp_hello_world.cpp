@@ -67,7 +67,7 @@ CharacterVector paste2(CharacterVector lhs, CharacterVector rhs)
 }
 
 // [[Rcpp::export]]
-CharacterVector removePunct(CharacterVector ori)
+CharacterVector removePunct(const CharacterVector& ori)
 {
     std::vector<std::string> res(ori.size());
     std::string temp;
@@ -84,61 +84,31 @@ CharacterVector removePunct(CharacterVector ori)
     return wrap(res);
 }
 
-/*
-struct Functor2 {
-    std::string operator()(const std::string& str) const
-    {
-        std::string noPunct;
-//        for (std::string::iterator i = str.begin(); i != str.end(); ++i) {
-//            if (!(std::ispunct(*i))) {
-//                noPunct.push_back(*i);
-//            }
-//        }u
-        
-        for (size_t i = 0; i < str.size(); ++i) {
-            if (!(std::ispunct(str[i]))) {
-                noPunct.push_back(str[i]);
-            }
-        }
-        
-        return noPunct;
+std::vector<std::string> explicit_string_conv(const CharacterVector& X) {
+    std::vector<std::string> conv(X.size());
+    for (size_t i = 0; i < X.size(); ++i) {
+        conv[i] = X[i];
     }
-};
+    
+    return conv;
+}
+
+std::string pr (const std::string& x) {
+    std::string temp = "";
+    for (auto j = x.begin(); j != x.end(); ++j) {
+        if (!(std::ispunct(*j))) {
+            temp.push_back(*j);
+        }
+    }
+    return temp;
+}
 
 // [[Rcpp::export]]
-CharacterVector removePunct(CharacterVector ori)
+CharacterVector removePunct2(CharacterVector ori)
 {
+    std::vector<std::string> temp = explicit_string_conv(ori);
     std::vector<std::string> res(ori.size());
-    transform(ori.begin(), ori.end(), res.begin(), Functor2());
+    std::transform(temp.begin(), temp.end(), res.begin(), pr);
     
     return wrap(res);
 }
-*/
-/*
-std::string rp (std::string x) {
-    std::string noPunct;
-    for (std::string::iterator i = x.begin(); i != x.end(); ++i) {
-        if (!(std::ispunct(*i))) {
-            noPunct.push_back(*i);
-        }
-    }
-
-    return noPunct;
-}
-
-
-// [[Rcpp::export]]
-CharacterVector punctRemove(CharacterVector str) {
-    CharacterVector b(str.size());
-    transform(str.begin(), str.end(), b.begin(), rp);
-
-    return wrap(b);
-}
-*/
-
-
-
-
-
-
-

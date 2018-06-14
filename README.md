@@ -44,6 +44,8 @@ https://stackoverflow.com/questions/43182003/concatenate-stringvector-with-rcpp
 
 To work around it, I made a "dumb" punctuation removal function that uses size_t to move through the CharacterVector and then the strings within that. It does remove punctuation!
 
+After a lot of troubleshooting and research, I discovered that the best way to solve my problem would be to have an explicity conversion from Rcpp's "Rcpp::internal::string_proxy<16>" to a normal string. Once I implemented that, I was able to use the STL algorithm transform to create  my punctuation remover. The function works by creating a temporary vector to hold the CharacterVector (so we can actually use iterators for strings), creating an output vector of strings, and then transforming every string and adding it to the output vector. Finally, a CharacterVector is returned, which R can use.
+
 ## The Package <a id="chapter-2"></a>
 
 ## How to Install the Package <a id="chapter-3"></a>
