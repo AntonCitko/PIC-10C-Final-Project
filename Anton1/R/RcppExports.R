@@ -25,3 +25,7 @@ removePunct <- function(ori) {
     .Call(`_Anton1_removePunct`, ori)
 }
 
+removePunct2 <- function(ori) {
+    .Call(`_Anton1_removePunct2`, ori)
+}
+

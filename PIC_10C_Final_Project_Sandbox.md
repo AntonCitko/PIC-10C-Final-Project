@@ -32,17 +32,17 @@ NULL, type = “source”)
 Adding a function to convert a number to celsius, sum a vector, and find the mean of a vector
 ---------------------------------------------------------------------------------------------
 
-    thingy <- 1:10
+    cosa1 <- 1:10
 
     to_celsius(100.0)
 
     ## [1] 37.77778
 
-    sumCpp(thingy)
+    sumCpp(cosa1)
 
     ## [1] 55
 
-    meanC(thingy)
+    meanC(cosa1)
 
     ## [1] 5.5
 
@@ -54,8 +54,13 @@ Adding a function to convert a number to celsius, sum a vector, and find the mea
 
     ## [1] "hibye"
 
-    thing <- c("hi.....$poiajefa;'a'")
+    cosa2 <- c("hi.....$poiajefa;'a'", "hello", "this-is_a#Cosa")
 
-    removePunct(thing)
+    stuff <- removePunct2(cosa2)
+    stuff
 
-    ## [1] "hipoiajefaa"
+    ## [1] "hipoiajefaa" "hello"       "thisisaCosa"
+
+    removePunct2("I /./.,/dont*%$#% know@##@$}{ how|| to?><-=+_ type")
+
+    ## [1] "I dont know how to type"

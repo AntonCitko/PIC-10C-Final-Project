@@ -32,22 +32,24 @@ rcpp_hello_world()
 
 ## Adding a function to convert a number to celsius, sum a vector, and find the mean of a vector
 ```{r}
-thingy <- 1:10
+cosa1 <- 1:10
 
 to_celsius(100.0)
 
-sumCpp(thingy)
+sumCpp(cosa1)
 
-meanC(thingy)
+meanC(cosa1)
 
 to_celsius(10)
 
-
 paste2(c("hi"), c("bye"))
 
-thing <- c("hi.....$poiajefa;'a'")
+cosa2 <- c("hi.....$poiajefa;'a'", "hello", "this-is_a#Cosa")
 
-removePunct(thing)
+stuff <- removePunct2(cosa2)
+stuff
+
+removePunct2("I /./.,/dont*%$#% know@##@$}{ how|| to?><-=+_ type")
 ```
 
 
