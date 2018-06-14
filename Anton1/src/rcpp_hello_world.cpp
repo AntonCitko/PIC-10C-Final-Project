@@ -1,5 +1,7 @@
 
 #include <Rcpp.h>
+#include <algorithm>
+#include <cctype>
 using namespace Rcpp;
 
 // [[Rcpp::export]]
@@ -41,3 +43,102 @@ double to_celsius(double x) {
     
     return res;
 }
+
+struct Functor {
+    std::string
+    operator()(const std::string& lhs, const internal::string_proxy<STRSXP>& rhs) const
+    {
+        return lhs + rhs;
+    }
+};
+
+// [[Rcpp::export]]
+CharacterVector paste2(CharacterVector lhs, CharacterVector rhs)
+{
+    //This function is an example I am using to create a similar function to remove punctuation
+    //All credit to: nrussell
+    //https://stackoverflow.com/questions/43182003/concatenate-stringvector-with-rcpp
+    
+    std::vector<std::string> res(lhs.begin(), lhs.end());
+    std::transform(res.begin(), res.end(),
+                   rhs.begin(), res.begin(),
+                   Functor());
+    return wrap(res);
+}
+
+// [[Rcpp::export]]
+CharacterVector removePunct(CharacterVector ori)
+{
+    std::vector<std::string> res(ori.size());
+    std::string temp;
+    for (size_t i = 0; i < ori.size(); ++i) {
+        temp = "";
+        for (size_t j = 0; j < ori[i].size(); ++j) {
+            if (!(std::ispunct(ori[i][j]))) {
+                temp.push_back(ori[i][j]);
+            }
+        }
+        res[i] = temp;
+    }
+    
+    return wrap(res);
+}
+
+/*
+struct Functor2 {
+    std::string operator()(const std::string& str) const
+    {
+        std::string noPunct;
+//        for (std::string::iterator i = str.begin(); i != str.end(); ++i) {
+//            if (!(std::ispunct(*i))) {
+//                noPunct.push_back(*i);
+//            }
+//        }
+        
+        for (size_t i = 0; i < str.size(); ++i) {
+            if (!(std::ispunct(str[i]))) {
+                noPunct.push_back(str[i]);
+            }
+        }
+        
+        return noPunct;
+    }
+};
+
+// [[Rcpp::export]]
+CharacterVector removePunct(CharacterVector ori)
+{
+    std::vector<std::string> res(ori.size());
+    transform(ori.begin(), ori.end(), res.begin(), Functor2());
+    
+    return wrap(res);
+}
+*/
+/*
+std::string rp (std::string x) {
+    std::string noPunct;
+    for (std::string::iterator i = x.begin(); i != x.end(); ++i) {
+        if (!(std::ispunct(*i))) {
+            noPunct.push_back(*i);
+        }
+    }
+
+    return noPunct;
+}
+
+
+// [[Rcpp::export]]
+CharacterVector punctRemove(CharacterVector str) {
+    CharacterVector b(str.size());
+    transform(str.begin(), str.end(), b.begin(), rp);
+
+    return wrap(b);
+}
+*/
+
+
+
+
+
+
+

@@ -49,3 +49,11 @@ Adding a function to convert a number to celsius, sum a vector, and find the mea
     to_celsius(10)
 
     ## [1] -12.22222
+
+    paste2(c("hi"), c("bye"))
+
+    ## [1] "hibye"
+
+    removePunct(c("hi.....$poiajefa;'a'"))
+
+    ## [1] "hipoiajefaa"

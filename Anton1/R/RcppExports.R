@@ -17,3 +17,11 @@ to_celsius <- function(x) {
     .Call(`_Anton1_to_celsius`, x)
 }
 
+paste2 <- function(lhs, rhs) {
+    .Call(`_Anton1_paste2`, lhs, rhs)
+}
+
+removePunct <- function(ori) {
+    .Call(`_Anton1_removePunct`, ori)
+}
+

@@ -38,6 +38,11 @@ sumCpp(thingy)
 meanC(thingy)
 
 to_celsius(10)
+
+
+paste2(c("hi"), c("bye"))
+
+removePunct(c("hi.....$poiajefa;'a'"))
 ```
 
 
