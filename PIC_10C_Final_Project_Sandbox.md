@@ -1,20 +1,20 @@
 Initial creation of package
 ---------------------------
 
-library(Rcpp)
+In R: library(Rcpp) Rcpp.package.skeleton(“Anton1”)
 
-Rcpp.package.skeleton(“Anton1”)  
-R CMD build Anton1  
+In the console: R CMD build Anton1  
 R CMD check Anton1  
-R CMD install Anton1\_1.0.tar.gz  
 ^ that is all in the terminal
 
+Back in R:
 compileAttributes(“/Users/Anton/PIC-10C-Final-Project/Anton1/”,
 verbose=TRUE)
 
 library(tools)  
 package\_native\_routine\_registration\_skeleton(“/Users/Anton/PIC-10C-Final-Project/Anton1/”,
-character\_only = FALSE)
+character\_only = FALSE) ^ copy the output of this into the file
+~/Anton1/src/init.c
 
 install.packages(“~/PIC-10C-Final-Project/Anton1\_1.0.tar.gz”, repos =
 NULL, type = “source”)
@@ -54,6 +54,8 @@ Adding a function to convert a number to celsius, sum a vector, and find the mea
 
     ## [1] "hibye"
 
-    removePunct(c("hi.....$poiajefa;'a'"))
+    thing <- c("hi.....$poiajefa;'a'")
+
+    removePunct(thing)
 
     ## [1] "hipoiajefaa"

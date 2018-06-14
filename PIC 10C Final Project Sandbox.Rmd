@@ -5,18 +5,21 @@ output: md_document
 
 ## Initial creation of package
 
+In R:
 library(Rcpp)
-
 Rcpp.package.skeleton("Anton1")  
+
+In the console:
 R CMD build Anton1  
 R CMD check Anton1  
-R CMD install Anton1_1.0.tar.gz  
 ^ that is all in the terminal
 
+Back in R:
 compileAttributes("/Users/Anton/PIC-10C-Final-Project/Anton1/", verbose=TRUE)
 
 library(tools)  
 package_native_routine_registration_skeleton("/Users/Anton/PIC-10C-Final-Project/Anton1/", character_only = FALSE)
+^ copy the output of this into the file ~/Anton1/src/init.c
 
 install.packages("~/PIC-10C-Final-Project/Anton1_1.0.tar.gz", repos = NULL, type = "source")
 

@@ -17,6 +17,8 @@ This repository contains the following files:
 ## Research, Ideas, and Development Process <a id="chapter-1"></a>
 ### This part is a journal where I kept track of the different ideas and sources I found to help me create a package for R. It followed along with my development process.
 
+I originally decided to do this project because it relates well to another class I am taking this quarter, Stats 20. Stats 20 is the introduction to using R and I had heard that a lot of R is based on C++ behind the scenes. I thought it would be interesting if I could figure out how to make a package for R using C++ because it would be interesting to discover how the languages are related.
+
 The first thing I did to figure out how to make a package for R was to Google what good starting places there are to make packages. A couple of helpful links were:  
 
 https://cran.r-project.org/doc/manuals/R-exts.pdf  
@@ -30,10 +32,10 @@ RccpExamples and its reference manual:
 https://cran.r-project.org/web/packages/RcppExamples/index.html
 https://cran.r-project.org/web/packages/RcppExamples/RcppExamples.pdf
 
-After having done research on how to create a package, the next was trying to compile and use one. After a lot of research and some frustration, I found a really helpful forum that discussed how to do it:  
+After having done research on making a package, the next steps was trying to write, compile, and use one. After a lot of research and some frustration, I found a really helpful forum that discussed how to do it:  
 https://stackoverflow.com/questions/16107431/how-do-i-run-rcpp-hello-world
 
-Once I had it working, I was able to run the rcpp_hello_world function! The frustration and time was worth it!
+Once I went through all the steps to create it (which can be seen at the top of PIC_10C_Final_Project_Sandbox.md), I was able to run the rcpp_hello_world function! The frustration and time was worth it!
 
 After that, I added my own function to convert a number from Fahrenheit to Celsius and tested out some functions to sum a vector and find the mean of a vector. These were easy to program.
 
@@ -45,6 +47,33 @@ https://stackoverflow.com/questions/43182003/concatenate-stringvector-with-rcpp
 To work around it, I made a "dumb" punctuation removal function that uses size_t to move through the CharacterVector and then the strings within that. It does remove punctuation!
 
 ## The Package <a id="chapter-2"></a>
+#### rcpp_hello_world : function () 
+* This is a basic function that comes with the Rcpp skeleton function
+* It returns a list of:  
+    [[1]]  
+    [1] "foo" "bar"  
+    [[2]]  
+    [1] 0 1
+
+#### to_celsius : function (x)  
+* Converts a number from Fahrenheit to Celsius
+
+#### meanC : function (x)  
+* Calculates the mean  of a numeric vector
+
+#### sumCpp : function (x)  
+* Calculates the sum of a numeric vector
+
+#### paste2 : function (lhs, rhs)  
+* Takes two strings and then pastes them together into one string
+
+#### removePunct : function (ori)  
+* Removes all the punctutation of in a CharacterVector
 
 ## How to Install the Package <a id="chapter-3"></a>
+* Have an up to date version of Rstudio and open it
+* Download Anton1_1.0.tar.gz from this repository
+* In Rstudio issue the command: "install.packages("~/Anton1_1.0.tar.gz", repos = NULL, type = "source")"
+* Next, load the library with the command: "library(Anton1)"
+* From here, you are all set to use the functions
 
