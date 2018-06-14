@@ -93,7 +93,7 @@ struct Functor2 {
 //            if (!(std::ispunct(*i))) {
 //                noPunct.push_back(*i);
 //            }
-//        }
+//        }u
         
         for (size_t i = 0; i < str.size(); ++i) {
             if (!(std::ispunct(str[i]))) {

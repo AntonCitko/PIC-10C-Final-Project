@@ -35,6 +35,14 @@ https://stackoverflow.com/questions/16107431/how-do-i-run-rcpp-hello-world
 
 Once I had it working, I was able to run the rcpp_hello_world function! The frustration and time was worth it!
 
+After that, I added my own function to convert a number from Fahrenheit to Celsius and tested out some functions to sum a vector and find the mean of a vector. These were easy to program.
+
+For my final part of the project I wanted to do something that could use some of the stuff I had learned this quarter in PIC 10C. I decided to try to add a punctuation remover for CharacterVectors function using STL algorithms to move through the CharacterVector. 
+
+My first go at was met with frustration because Rcpp has trouble moving from string iterators to characters back to strings. I tried to follow along with someone that implemented a function that would paste two character vectors together into one string using the transform STL algorithm, but I still could not get past my issues. The forum for that is below:  
+https://stackoverflow.com/questions/43182003/concatenate-stringvector-with-rcpp
+
+To work around it, I made a "dumb" punctuation removal function that uses size_t to move through the CharacterVector and then the strings within that. It does remove punctuation!
 
 ## The Package <a id="chapter-2"></a>
 

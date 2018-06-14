@@ -42,7 +42,9 @@ to_celsius(10)
 
 paste2(c("hi"), c("bye"))
 
-removePunct(c("hi.....$poiajefa;'a'"))
+thing <- c("hi.....$poiajefa;'a'")
+
+removePunct(thing)
 ```
 
 
