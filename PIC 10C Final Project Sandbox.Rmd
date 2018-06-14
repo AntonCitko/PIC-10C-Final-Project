@@ -32,24 +32,48 @@ rcpp_hello_world()
 
 ## Adding a function to convert a number to celsius, sum a vector, and find the mean of a vector
 ```{r}
-cosa1 <- 1:10
-
-to_celsius(100.0)
-
-sumCpp(cosa1)
-
-meanC(cosa1)
-
 to_celsius(10)
 
-paste2(c("hi"), c("bye"))
+to_celsius(100.0)
+```
 
-cosa2 <- c("hi.....$poiajefa;'a'", "hello", "this-is_a#Cosa")
+```{r}
+cosa1 <- 1:10
+
+sumCpp(cosa1)
+sumCpp(15:10)
+
+meanC(cosa1)
+meanC(15:10)
+```
+
+```{r}
+paste2("hi", "bye")
+
+removePunct("_-#h3/l/l0!-_")
+removePunct2("_-#h3/l/l0!-_")
+
+cosa2 <- c("hi.....$poiajefa;'a'", "hello", "this-is_a#Cosa", "'I /./.,/dont*%$#% know@##@$}{ how|| to?><-=+_ type'")
 
 stuff <- removePunct2(cosa2)
 stuff
+```
 
-removePunct2("I /./.,/dont*%$#% know@##@$}{ how|| to?><-=+_ type")
+```{r}
+load(url("http://www.stat.ucla.edu/~vlew/SP18stat20/bb102.RData"))
+salaries <- bb102[["salaries10.2"]]
+
+salaries_long <- c(salaries$Salary, salaries$Salary, salaries$Salary, salaries$Salary,salaries$Salary, salaries$Salary, salaries$Salary)
+
+head(salaries$Salary, 10)
+head(removePunct2(salaries$Salary), 10)
+head(gsub("\\$|,", "", salaries$Salary), 10)
+
+system.time(removePunct2(salaries$Salary))
+system.time(gsub("\\$|,", "", salaries$Salary))
+
+system.time(removePunct2(salaries_long))
+system.time(gsub("\\$|,", "", salaries_long))
 ```
 
 

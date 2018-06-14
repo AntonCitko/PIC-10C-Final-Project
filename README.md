@@ -9,7 +9,9 @@ I am creating a package for R using C++. Below you will find the research and id
 
 ## What is in this Repository <a id="chapter-0"></a>
 This repository contains the following files:
-* Anton1 is a folder that contains the cpp files for the functions in the package, the documentation generated for the package, and the RcppExports file that tells R what functions there are.
+* Anton1 is a folder that contains the cpp files for the functions in the package, the documentation generated for the package, and the RcppExports file that tells R what functions there are.  
+    * Actual programing for functions can be found in PIC-10C-Final-Project/Anton1/src/rcpp_hello_world.cpp  
+    * https://github.com/antonqp/PIC-10C-Final-Project/blob/master/Anton1/src/rcpp_hello_world.cpp  
 * PIC 10C Final Project Sandbox files are markdown files where I played around to figure out how to get the package to work and myself trying it out.
 * Anton1_1.0.tar.gz is the actual package that you can install and run in R.
 * The other files were generated in the process of this project that help to compile the the package.
@@ -46,7 +48,14 @@ https://stackoverflow.com/questions/43182003/concatenate-stringvector-with-rcpp
 
 To work around it, I made a "dumb" punctuation removal function that uses size_t to move through the CharacterVector and then the strings within that. It does remove punctuation!
 
-After a lot of troubleshooting and research, I discovered that the best way to solve my problem would be to have an explicity conversion from Rcpp's "Rcpp::internal::string_proxy<16>" to a normal string. Once I implemented that, I was able to use the STL algorithm transform to create  my punctuation remover. The function works by creating a temporary vector to hold the CharacterVector (so we can actually use iterators for strings), creating an output vector of strings, and then transforming every string and adding it to the output vector. Finally, a CharacterVector is returned, which R can use.
+After a lot of troubleshooting and research, I discovered that the best way to solve my problem would be to have an explicit conversion from Rcpp's "Rcpp::internal::string_proxy<16>" to a normal string. Once I implemented that, I was able to use the STL algorithm transform to create my punctuation remover. The function works by creating a temporary vector to hold the CharacterVector (so we can actually use iterators for strings), creating an output vector of strings, and then transforming every string and adding it to the output vector. Finally, a CharacterVector is returned, which R can use.
+
+Below is the link that helped me figure out a workaround:  
+https://github.com/RcppCore/Rcpp/issues/552
+
+I really enjoyed this project because it gave me a lot  of independence. I am interested in going into data science so R and object orientated programming are very important skills to have. This summer, if I find time I might continue working on creating more packages for R.
+
+If I had more time to work on this project I would try to implement a way to specify certain puncutation symbols to keep for my punctuation remover function. This would be useful to keep decimal places for certain situtations, for example, dollar amounts.
 
 ## The Package <a id="chapter-2"></a>
 #### rcpp_hello_world : function () 
@@ -72,10 +81,14 @@ After a lot of troubleshooting and research, I discovered that the best way to s
 #### removePunct : function (ori)  
 * Removes all the punctuation of in a CharacterVector
 
+#### removePunct2 : function (ori) 
+* Removes all the punctuation of in a CharacterVector
+* Utilizes the transform STL algorithm
+
 ## How to Install the Package <a id="chapter-3"></a>
-* Have an up to date version of Rstudio and open it
-* Download Anton1_1.0.tar.gz from this repository
-* In Rstudio issue the command: "install.packages("~/Anton1_1.0.tar.gz", repos = NULL, type = "source")"
-* Next, load the library with the command: "library(Anton1)"
-* From here, you are all set to use the functions
+1. Have an up to date version of Rstudio and open it
+2. Download Anton1_1.0.tar.gz from this repository
+3. In Rstudio issue the command: "install.packages("~/Anton1_1.0.tar.gz", repos = NULL, type = "source")"
+4. Next, load the library with the command: "library(Anton1)"
+5. From here, you are all set to use the functions
 

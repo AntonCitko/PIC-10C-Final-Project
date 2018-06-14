@@ -32,35 +32,89 @@ NULL, type = “source”)
 Adding a function to convert a number to celsius, sum a vector, and find the mean of a vector
 ---------------------------------------------------------------------------------------------
 
-    cosa1 <- 1:10
+    to_celsius(10)
+
+    ## [1] -12.22222
 
     to_celsius(100.0)
 
     ## [1] 37.77778
 
+    cosa1 <- 1:10
+
     sumCpp(cosa1)
 
     ## [1] 55
+
+    sumCpp(15:10)
+
+    ## [1] 75
 
     meanC(cosa1)
 
     ## [1] 5.5
 
-    to_celsius(10)
+    meanC(15:10)
 
-    ## [1] -12.22222
+    ## [1] 12.5
 
-    paste2(c("hi"), c("bye"))
+    paste2("hi", "bye")
 
     ## [1] "hibye"
 
-    cosa2 <- c("hi.....$poiajefa;'a'", "hello", "this-is_a#Cosa")
+    removePunct("_-#h3/l/l0!-_")
+
+    ## [1] "h3ll0"
+
+    removePunct2("_-#h3/l/l0!-_")
+
+    ## [1] "h3ll0"
+
+    cosa2 <- c("hi.....$poiajefa;'a'", "hello", "this-is_a#Cosa", "'I /./.,/dont*%$#% know@##@$}{ how|| to?><-=+_ type'")
 
     stuff <- removePunct2(cosa2)
     stuff
 
-    ## [1] "hipoiajefaa" "hello"       "thisisaCosa"
+    ## [1] "hipoiajefaa"             "hello"                  
+    ## [3] "thisisaCosa"             "I dont know how to type"
 
-    removePunct2("I /./.,/dont*%$#% know@##@$}{ how|| to?><-=+_ type")
+    load(url("http://www.stat.ucla.edu/~vlew/SP18stat20/bb102.RData"))
+    salaries <- bb102[["salaries10.2"]]
 
-    ## [1] "I dont know how to type"
+    salaries_long <- c(salaries$Salary, salaries$Salary, salaries$Salary, salaries$Salary,salaries$Salary, salaries$Salary, salaries$Salary)
+
+    head(salaries$Salary, 10)
+
+    ##  [1] $380,000   $4,575,000 $380,000   $1,034,000 $1,437,500 $1,250,000
+    ##  [7] $5,500,000 $1,500,000 $380,000   $387,500  
+    ## 332 Levels: $1,000,000 $1,025,000 $1,030,000 $1,034,000 ... $985,000
+
+    head(removePunct2(salaries$Salary), 10)
+
+    ##  [1] "380000"  "4575000" "380000"  "1034000" "1437500" "1250000" "5500000"
+    ##  [8] "1500000" "380000"  "387500"
+
+    head(gsub("\\$|,", "", salaries$Salary), 10)
+
+    ##  [1] "380000"  "4575000" "380000"  "1034000" "1437500" "1250000" "5500000"
+    ##  [8] "1500000" "380000"  "387500"
+
+    system.time(removePunct2(salaries$Salary))
+
+    ##    user  system elapsed 
+    ##       0       0       0
+
+    system.time(gsub("\\$|,", "", salaries$Salary))
+
+    ##    user  system elapsed 
+    ##   0.003   0.000   0.002
+
+    system.time(removePunct2(salaries_long))
+
+    ##    user  system elapsed 
+    ##   0.002   0.000   0.003
+
+    system.time(gsub("\\$|,", "", salaries_long))
+
+    ##    user  system elapsed 
+    ##   0.006   0.000   0.006
