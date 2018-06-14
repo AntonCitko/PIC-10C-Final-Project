@@ -107,7 +107,7 @@ Adding a function to convert a number to celsius, sum a vector, and find the mea
     system.time(gsub("\\$|,", "", salaries$Salary))
 
     ##    user  system elapsed 
-    ##   0.003   0.000   0.002
+    ##   0.003   0.000   0.003
 
     system.time(removePunct2(salaries_long))
 
