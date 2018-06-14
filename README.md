@@ -68,7 +68,7 @@ To work around it, I made a "dumb" punctuation removal function that uses size_t
 * Takes two strings and then pastes them together into one string
 
 #### removePunct : function (ori)  
-* Removes all the punctutation of in a CharacterVector
+* Removes all the punctuation of in a CharacterVector
 
 ## How to Install the Package <a id="chapter-3"></a>
 * Have an up to date version of Rstudio and open it
